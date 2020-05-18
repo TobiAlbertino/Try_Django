@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block app_css %}
+<link rel="stylesheet" href="{% static 'about/css/style.css' %}">
+{% endblock app_css %}
+    
+
+{% block header %}
+    <h1 class="text-left" style="margin-top: 220px;">{{judul}}</h1>
+    <p class="lead text-left">{{subjudul}}</p>
+{% endblock header %}   
+
+{% block content-1 %}
+<div class="row bg-primary" style="height: 400px;">
+    <h1>Blog about </h1>
+</div>
+{% endblock content-1 %}
+
+{% block content-2 %}
+<div class="row bg-info" style="height: 400px;">
+    <h1>Blog about 2 </h1>
+</div>
+{% endblock content-2 %}
+    

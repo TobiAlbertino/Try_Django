@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block Title %}
+    {{title}}
+{% endblock Title %}
+
+{% block header %}
+<h1 class="display-4">{{title}}</h1>
+<p class="lead">{{subTitle}}</p>
+{% endblock header %}
+
+{% block pageTitle %}
+<div class="row" style="height: 100px;">
+    <h1>{{title}} </h1>
+</div>
+<div class="row" style="height: 70px;">
+    <h3>{{content}} </h3>
+</div>
+{% endblock pageTitle %}
+

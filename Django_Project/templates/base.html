@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static app_css %}">-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{subjudul}}</title>
+
+    {% include 'snippets/style.html' %}
+
+    
+    {% block app_css %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock app_css %}
+        
+</head>
+
+<body>
+    {% include 'snippets/navbar.html' %}
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-white text-center">
+            
+            {% block header %}
+                
+            {% endblock header %}
+                
+
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container bg-info text-dark shadow" style="margin-top:-100px;" id="myBody">
+            
+            {% block content-1 %}
+                
+            {% endblock content-1 %}
+                
+        </div>
+
+        <div class="container bg-warning text-dark shadow"> 
+            
+            {% block content-2 %}
+            
+            {% endblock content-2 %}
+                
+        </div>
+
+        
+    </div>
+<!-- __________________________________________________________________________________________-->
+    <div class="container">
+        <img style="width: 100%;" src="{% static 'img/banner_home.png' %}" alt="">
+        <!-- <img id="banner" src="{% static banner %}" alt="">-->
+
+        <nav>
+            <ul>
+                {% for link,name in nav %}
+                <li>
+                    <a href=" {{link}} " title=""> {{name}} </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <nav>
+            <ul>
+                <li><a href="/" title="">home</a></li>
+                <li><a href="/about" title="">About</a></li>
+                <li><a href="/blog" title="">Blog</a></li>
+            </ul>
+        </nav>
+
+        <h1>{{subjudul}} di {{judul}}</h1>
+        <h2>kontributor : {{kontributor}}</h2>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero corrupti eaque architecto consequuntur
+            providentnanja d fjkajd skfndkanfkajnfka dkansdjfksamfjkas fksanfjkdsanjkfkas fakjnfj apa yang dimaksdude
+            dnegan tugas project???
+            culpa ipsum laudantium, facere, nulla nam, et blanditiis ab quidem est possimus minus rerum voluptatum?
+            Ipsam!
+        </p>
+    </div>
+
+    {% include 'snippets/scripts.html' %}
+
+</body>
+
+</html>

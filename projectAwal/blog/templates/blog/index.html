@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block Title %}
+    {{title}}
+{% endblock Title %}
+
+{% block app_css %}
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock app_css %}
+
+{% block header %}
+<h1 class="display-4">{{title}}</h1>
+<p class="lead">{{subTitle}}</p>
+{% endblock header %}
+
+{% block pageTitle %}
+<div class="row" style="height: 100px;">
+    <h1>{{title}} </h1>
+</div>
+{% endblock pageTitle %}
+
+{% block contents %}
+    {{content}}
+
+    <ul class="nav">
+
+        <li class="nav-item">
+            <a class="nav-link" href='{% url 'blog:index' %}'>
+                All-post
+            </a>
+    
+        </li>
+    
+        {% for dataCategory in Categories  %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:categoryPost' categoryInput=dataCategory.category %}">
+                {{dataCategory.category}}
+            </a> 
+    
+        </li>
+        {% endfor %}
+    </ul>
+    
+    {% for post in Posts %}
+        <a href="{% url 'blog:detailPost' slugInput=post.slug %}">
+            <h1>{{ post.judul }}</h1>
+        </a>
+        <p>{{ post.publish }}</p>
+        <p>{{ post.body|truncatechars:200 }}</p>
+    {% endfor %}
+        
+{% endblock contents %}
+    
+    
